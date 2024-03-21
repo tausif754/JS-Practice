@@ -1,12 +1,13 @@
 // let complete = false;
-function createPromise(complete) {
+function createPromise(a, b) {
   return (promise = new Promise(function (resolve, reject) {
     console.log("fetching data plase wait");
+    var c = a / b;
     setTimeout(() => {
-      if (complete) {
-        resolve("I am successfull");
+      if ((a, b)) {
+        resolve(`Your answer: ${c}`);
       } else {
-        reject("I am failed");
+        reject("failed to calculate");
       }
     }, 1000);
   }));
@@ -19,4 +20,10 @@ let onFulfilment = (result) => {
 let onRejection = (error) => {
   console.log(error);
 };
-createPromise(true).then(onFulfilment).catch(onRejection);
+createPromise(5, 0)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch(() => {
+    console.log(error);
+  });
